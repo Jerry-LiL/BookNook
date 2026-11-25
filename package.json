@@ -1,0 +1,22 @@
+{
+  "name": "booknook",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,web -c green,blue \"npm run dev -w server\" \"npm run dev -w client\"",
+    "start": "npm run start -w server",
+    "test": "npm test -w server",
+    "lint": "npm run lint -w server && npm run lint -w client",
+    "build": "npm run build -w client",
+    "migrate": "npm run migrate -w server"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
